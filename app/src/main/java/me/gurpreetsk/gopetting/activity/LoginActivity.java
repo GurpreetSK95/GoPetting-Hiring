@@ -158,7 +158,7 @@ public class LoginActivity extends AppCompatActivity {
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(LoginActivity.this, "Can't log in", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Couldn't fetch data\nTry again", Toast.LENGTH_SHORT).show();
                             progressDialog.dismiss();
                         }
                     }
@@ -168,7 +168,8 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         Log.e(TAG, "onErrorResponse: ", error);
                         progressDialog.dismiss();
-                        Toast.makeText(LoginActivity.this, "Can't log in", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Couldn't fetch data", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     }
                 }
         );

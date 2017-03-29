@@ -43,7 +43,7 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         holder.textviewData.setText(dataArrayList.get(position).getName());
         Picasso.with(context)
                 .load(dataArrayList.get(position).getIconUrl())
@@ -52,13 +52,13 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
         holder.gridElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String content = "Start Date:\r\t" + dataArrayList.get(position).getStartDate() +
-                        "\n\nEnd Date:\r\t" + dataArrayList.get(position).getEndDate() +
-                        "\n\nURL:\r\t" + dataArrayList.get(position).getUrl() +
-                        "\n\nLogin Required:\r\t" + dataArrayList.get(position).getLoginRequired() +
-                        "\n\nObjType:\r\t" + dataArrayList.get(position).getObjType();
+                String content = "Start Date:\r\t" + dataArrayList.get(holder.getAdapterPosition()).getStartDate() +
+                        "\n\nEnd Date:\r\t" + dataArrayList.get(holder.getAdapterPosition()).getEndDate() +
+                        "\n\nURL:\r\t" + dataArrayList.get(holder.getAdapterPosition()).getUrl() +
+                        "\n\nLogin Required:\r\t" + dataArrayList.get(holder.getAdapterPosition()).getLoginRequired() +
+                        "\n\nObjType:\r\t" + dataArrayList.get(holder.getAdapterPosition()).getObjType();
                 new MaterialDialog.Builder(context)
-                        .title(dataArrayList.get(position).getName())
+                        .title(dataArrayList.get(holder.getAdapterPosition()).getName())
                         .content(content)
                         .positiveText(R.string.cool)
                         .show();
