@@ -2,4 +2,6 @@
     <string name="app_name">GoPetting</string>
     <string name="welcome">Welcome!</string>
     <string name="failed_login">Login failed</string>
+    <string name="description_grid_image" />
+    <string name="logging_in">Logging in</string>
 </resources>

@@ -17,7 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"/>
+        <activity android:name=".activity.MainActivity" />
+
+        <provider
+            android:name=".data.DataProvider"
+            android:authorities="me.gurpreetsk.gopetting"
+            android:exported="false" />
     </application>
 
 </manifest>
