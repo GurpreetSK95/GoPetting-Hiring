@@ -174,6 +174,4 @@ public class LoginActivity extends AppCompatActivity {
         );
         PettingApplication.getInstance().addToQueue(dataArrayRequest);
     }
-
-
 }

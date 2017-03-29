@@ -6,9 +6,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 import butterknife.BindView;
@@ -40,8 +43,27 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         holder.textviewData.setText(dataArrayList.get(position).getName());
+        Picasso.with(context)
+                .load(dataArrayList.get(position).getIconUrl())
+                .error(context.getResources().getDrawable(R.drawable.ic_error))
+                .into(holder.imageviewData);
+        holder.gridElement.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String content = "Start Date:\r\t" + dataArrayList.get(position).getStartDate() +
+                        "\n\nEnd Date:\r\t" + dataArrayList.get(position).getEndDate() +
+                        "\n\nURL:\r\t" + dataArrayList.get(position).getUrl() +
+                        "\n\nLogin Required:\r\t" + dataArrayList.get(position).getLoginRequired() +
+                        "\n\nObjType:\r\t" + dataArrayList.get(position).getObjType();
+                new MaterialDialog.Builder(context)
+                        .title(dataArrayList.get(position).getName())
+                        .content(content)
+                        .positiveText(R.string.cool)
+                        .show();
+            }
+        });
     }
 
     @Override
@@ -56,6 +78,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.MyViewHolder> 
         ImageView imageviewData;
         @BindView(R.id.textview_grid_element)
         TextView textviewData;
+        @BindView(R.id.grid_element)
+        LinearLayout gridElement;
 
         public MyViewHolder(View itemView) {
             super(itemView);
