@@ -1,15 +1,15 @@
 package me.gurpreetsk.gopetting.activity;
 
-import android.app.ProgressDialog;
-import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Toast;
+import android.view.Menu;
+import android.view.MenuItem;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -73,6 +73,26 @@ public class MainActivity extends AppCompatActivity {
         return dataFromServer;
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ic_settings:
+                new MaterialDialog.Builder(MainActivity.this)
+                        .title("Created by Gurpreet Singh")
+                        .content("GoPetting - 2017")
+                        .positiveText(R.string.app_name)
+                        .show();
+        }
+        return true;
+    }
 
     public void fetchDataFromServer() {
         JsonObjectRequest dataArrayRequest = new JsonObjectRequest(Request.Method.GET,

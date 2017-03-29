@@ -5,4 +5,5 @@
     <string name="description_grid_image" />
     <string name="logging_in">Logging in</string>
     <string name="cool">Cool!</string>
+    <string name="ic_settings">Settings</string>
 </resources>
