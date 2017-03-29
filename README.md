@@ -9,7 +9,6 @@ Android app as per the challenge received in the e-mail.
 - [**Volley**](https://developer.android.com/training/volley/index.html) for transmitting network data
 - **Picasso** for image loading
 - **SQLite** database for data persistence with **ContentProvider** for communication
--
 
 
 ##Screenshots:
