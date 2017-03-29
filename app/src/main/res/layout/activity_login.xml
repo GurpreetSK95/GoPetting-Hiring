@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/relativelayout_login"
-    tools:context="me.gurpreetsk.gopetting.LoginActivity">
+    tools:context="me.gurpreetsk.gopetting.activity.LoginActivity">
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/button_signin"
