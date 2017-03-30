@@ -1,7 +1,7 @@
 GoPetting- Android Hiring
 =========================
 
-Android app as per the challenge received in the e-mail.
+[Android app](app/gopettting-release.apk) as per the challenge received in the e-mail.
 
 
 Features:
